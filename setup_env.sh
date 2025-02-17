@@ -3,7 +3,7 @@
 cp .env.template .env
 
 if [ -z "$AUTH_SECRET" ]; then
-  AUTH_SECRET=$(npx --y auth secret)
+  AUTH_SECRET=$(openssl rand -base64 32)
   echo "Generated AUTH_SECRET: $AUTH_SECRET"
 else
   echo "Using existing AUTH_SECRET from environment."
